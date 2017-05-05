@@ -1,1 +1,15 @@
-
+function gestion_utilisateur () {
+function creation_supp_utilisateur() { #Fonction_pour_création&suppresion_utilisateur
+echo -e "\033[31m Supprimer ou créer un utilisateur ? \033[00m"
+echo " Taper s pour supprimer / Taper c pour créer :"
+read choix
+if [ $choix = "c" ] ;
+then
+  echo "Entrer le login de l'utilisateur souhaité :"
+  read user
+  adduser -a $user 2>/dev/null    #2>/dev/null = redirection output vers la poubelle 
+  if [ $? -eq 0 ]
+  then
+    echo -e "\033[31m L'utilisateur $user à bien été crée ! \033[00m"
+  else
+    echo -e "\033[31m Echec, l'utilisateur $user n'a pas été crée, vérifier vos données.... \033[00m"
