@@ -69,7 +69,7 @@ else
       exit 0
  fi
 fi
-menu_utilisateur          #Retour au sous menu de la fonction
+Menu         #Retour au sous menu de la fonction
 }
 
 #****************************************************************************
@@ -120,3 +120,4 @@ then							# si l'identifiant n'est pas celui de root
 else
    Menu
 fi
+}
