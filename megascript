@@ -1,2 +1,28 @@
-!/usr/bin/python
+#!/bin/bash
 # -*- coding: utf-8 -*-
+#***********************************************************
+#****************SCRIPT D'ADMINISTRATION VERSION 1**********
+#***********************************************************
+#***********************************************************
+#***********CONTRIBUTEUR: SOURIQUAT......*******************
+#***********************************************************
+#
+# NOTES:
+#
+# Ce script peut être modifié en implémentant de nouvelles fonctions
+# L'indentation doit être claire et les commandes commentées
+# Le menu principal du script se trouve à la fin
+#Ce script doit être lancer en tant que root
+#En cas de rajout de fonction penser à rappeler la fonction dans le menu principal ou dans le sous menu auquel elle est implémentée
+#En cas de modification, l'interface doit restée au maximum intuitive
+#
+#Veuillez crée une ficher et tester votre fonction avant de l'implémenté et indiqué si vous avez besoin d'aide
+#
+# N'OUBLIEZ PAS DE COMMENTER
+
+
+
+#**************************************************************
+#**************Fonction Gestion des utilisateurs***************
+#**************************************************************
+
