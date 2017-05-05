@@ -26,3 +26,52 @@
 #**************Fonction Gestion des utilisateurs***************
 #**************************************************************
 
+
+#****************************************************************************
+#****************************Fonction Quitter********************************
+#****************************************************************************
+function quitter () {
+exit
+}
+
+#****************************************************************************
+#**********************************Fonction MENU*****************************
+#****************************************************************************
+function Menu () {				# conception du menu Principal
+echo ""						# les sous fonctions
+echo -e "\033[36m Projet Souriquat\033[00m"
+echo -e " 							   \033[36 Contributeur: \033[00m "
+echo -e "                         \033[37m _______________________________ \033[00m  "
+echo -e "                         \033[37m|    Script d'administration    |\033[00m  "
+echo -e "                         \033[37m _______________________________ \033[00m  "
+echo""
+echo -e "\033[33m*** Menu Principal *** :\033[00m"
+echo""
+echo "1 - Gestion des utilisateurs"
+echo "2 - Quitter"
+echo ""
+echo "Entrez votre choix :"
+read CHOIX					# lecture du choix et appel des fonctions
+case $CHOIX in
+  1)gestion_utilisateur;;
+  2)quitter;;
+
+  *)exit 0;;
+esac
+}							# FIN de la fonction du menu Principal
+if [ ! `id -u` = 0 ]; 				# Vérification de l'identifiant du user
+then							# si l'identifiant n'est pas celui de root
+   echo -e "\033[31m Ce script doit être exécuté en root \033[00m"		# le script n'est pas exécute,
+     echo""												# Sinon accès au menu Principal
+     echo "**********************************************"
+     echo "Appuyer sur la touche <Entrée> pour quitter..."
+     echo "**********************************************"
+     read touche
+     case $touche in
+
+	*)echo -e "\033[37m**** Reprise du script... ****\033[00m";;
+     esac
+   exit 0
+else
+   Menu
+fi
