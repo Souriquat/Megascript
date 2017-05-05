@@ -3,13 +3,44 @@ function creation_supp_utilisateur() { #Fonction_pour_création&suppresion_utili
 echo -e "\033[31m Supprimer ou créer un utilisateur ? \033[00m"
 echo " Taper s pour supprimer / Taper c pour créer :"
 read choix
-if [ $choix = "c" ] ;
-then
+ if [ $choix = "c" ] ;
+ then
   echo "Entrer le login de l'utilisateur souhaité :"
   read user
   adduser -a $user 2>/dev/null    #2>/dev/null = redirection output vers la poubelle 
-  if [ $? -eq 0 ]
+   if [ $? -eq 0 ]
+   then
+     echo -e "\033[31m L'utilisateur $user à bien été crée ! \033[00m"
+   else
+     echo -e "\033[31m Echec, l'utilisateur $user n'a pas été crée, vérifier vos données.... \033[00m"
+   fi
+  echo "Appuyer sur la touche <Entrée> pour revenir au menu..."
+  read touche                     # lecture de la touche entrée
+  case $touche in
+  
+  *)echo -e "\033[37m****Reprise du script... ****\033[00m';;
+  esac
+ else
+  if [$choix = "d" ] ;
   then
-    echo -e "\033[31m L'utilisateur $user à bien été crée ! \033[00m"
+    echo " Donner le nom de l'utilisateur à supprimer :"
+    read utildel
+    userdel -r $utildel 2>dev/null              #suppression de l'utilisateur
+      if [ $? -eq 0]                            #Vérification
+      then
+         echo -e "\033[31m La suppression de l'utilisateur $utildel est confirmée \033[00m"
+      else
+         echo -e "\033[31m Echec de la suppression de l'utilisateur $utildel, vérifier vos données... \033[00m"
+      fi
+      echo "Appuyer sur la touche <Entrée> pour revenir au menu"
+      read touche
+      case $touche in
+      
+      *)echo -e "\033[37m**** Reprise du script... ****\033[0m";;
+      esac
   else
-    echo -e "\033[31m Echec, l'utilisateur $user n'a pas été crée, vérifier vos données.... \033[00m"
+     exit 0
+  fi
+ fi
+menu_utilisateur          #Retour au sous menu de la fonction
+}
